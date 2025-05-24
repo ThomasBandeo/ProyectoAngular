@@ -1,0 +1,42 @@
+<h1>lista de camperas</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Compras</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (ropa of ropas; track ropa.name){
+            <tr [ngClass]="{ 'clearance': ropa.clearance }">
+                <td><img width="200" class="img-thumbnail img-indumentaria" [src]="ropa.image" [alt]="ropa.name"> </td>
+                <td>{{ropa.name}}</td>
+                <td>{{ropa.type}}</td>
+                <td>{{ropa.price | currency }}</td>
+                @if (ropa.stock > 0){
+                    <td>{{ropa.stock}}</td>
+                } @else {
+                     <td> <span class= "badge bg-warning text-dark" *ngIf="ropa.stock == 0"> SIN STOCK </span> </td>
+                }
+                <td>
+                    <button class="btn btn-primary btn-sm" (click)="downQuantity(ropa)"> - </button> 
+                    <input 
+                        type="text" 
+                        [(ngModel)]="ropa.quantity"
+                        (input)="changeQuantity($event, ropa)"> 
+                        <!-- Use (input) en lugar de (keyup) porque keyup no capturaba algunos cambios como pegar texto o autocompletado -->
+                    <button class="btn btn-primary btn-sm" (click)="upQuantity(ropa)" > + </button> 
+                    {{ropa.quantity}}
+                </td>
+            </tr>
+        } @empty {
+            <tr>
+                <td colspan="4"> No hay ropas para mostrar </td>
+            </tr>
+        }
+    </tbody>
+</table>
