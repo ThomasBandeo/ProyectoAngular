@@ -6,5 +6,4 @@ export interface Ropa {
     image: string;
     clearance: boolean;
     quantity: number;
-    asda
 }

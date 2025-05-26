@@ -17,10 +17,10 @@
                 <td>{{ropa.name}}</td>
                 <td>{{ropa.type}}</td>
                 <td>{{ropa.price | currency }}</td>
-                @if (ropa.stock > 0){
-                    <td>{{ropa.stock}}</td>
+                @if (ropa.stock == 0) {
+                    <td><span class="badge bg-warning text-dark">SIN STOCK</span></td>
                 } @else {
-                     <td> <span class= "badge bg-warning text-dark" *ngIf="ropa.stock == 0"> SIN STOCK </span> </td>
+                    <td></td> <!-- dejo esta celda vacia. cuando la sacaba perdia la columna (para ocultar nro stock) -->
                 }
                 <td>
                     <button class="btn btn-primary btn-sm" (click)="downQuantity(ropa)"> - </button> 
