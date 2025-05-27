@@ -1,7 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import path from 'node:path';
+import { IndumentariaRopasComponent } from './indumentaria-ropas/indumentaria-ropas.component';
+import { IndumentariaAboutComponent } from './indumentaria-about/indumentaria-about.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {                           //raiz de nuestro proyecto
+    path : '' , 
+    redirectTo: 'ropas',
+    pathMatch: 'full' 
+  },
+  { 
+    path : 'ropas' , 
+    component: IndumentariaRopasComponent
+  },
+  { 
+    path : 'about' , 
+    component: IndumentariaAboutComponent
+  },
+
+
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

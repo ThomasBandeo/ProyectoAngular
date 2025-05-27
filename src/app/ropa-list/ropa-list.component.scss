@@ -1,10 +1,39 @@
 
-h1{
-    color: blue;
+tr.clearance td {
+  background-color: #d4edda;
+  border: none; /* opcional */
 }
 
+td{
+  vertical-align: middle;
+}
 
-tr.clearance td {
-  background-color: lightgreen;
-  border: none; /* opcional */
+th{
+  font-size: 18px;
+  font-weight:500;
+}
+
+input{
+  max-width: 40px;
+}
+
+.img-indumentaria{
+  height: 220px;
+}
+
+.quantity-input {
+  width: 50px;
+  display: inline-block;
+  padding: 2px 6px;
+}
+
+.table {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.table thead {
+  background-color: #e9ecef; /* Gris Bootstrap */
 }

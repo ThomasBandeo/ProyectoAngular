@@ -21,7 +21,7 @@ export class RopaListComponent {
     },
     { 
       name: "Supreme spring",
-      type: "CamperaJE",
+      type: "Campera",
       price: 300,
       stock: 10,
       image: "img/supreme.jpeg",
@@ -30,10 +30,10 @@ export class RopaListComponent {
     },
     { 
       name: "Nike Cream",
-      type: "Buzo",
+      type: "Pantalon",
       price: 80,
       stock: 0,
-      image: "img/campera.jpeg",
+      image: "img/pantalon.jpeg",
       clearance: false,
       quantity: 0,
     }
