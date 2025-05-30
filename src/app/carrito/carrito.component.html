@@ -1,1 +1,8 @@
 <h1 class="text-center my-4"> Carrito compra </h1>
+
+
+<ul>
+    <li *ngFor = "let ropa of cartList$ | async" >
+        {{ropa.name}} : {{ropa.quantity}}
+    </li>
+</ul>

@@ -1,0 +1,11 @@
+<div class="container-input">
+    <button class="btn btn-outline-secondary btn-sm rounded-circle me-1" (click)="downQuantity()">−</button>
+        <input 
+        type="text" 
+        class="form-control d-inline text-center mx-1 quantity-input"
+        [(ngModel)]="quantity"
+        (input)="changeQuantity($event)"> 
+        <!-- Use (input) en lugar de (keyup) porque keyup no capturaba algunos cambios como pegar texto o autocompletado -->
+    <button class="btn btn-outline-secondary btn-sm rounded-circle ms-1" (click)="upQuantity()">+</button>
+</div>
+

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { CarritoRopaService } from '../carrito-ropa.service';
+import { Ropa } from '../ropa-list/Ropa';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-carrito',
@@ -7,5 +10,11 @@ import { Component } from '@angular/core';
   styleUrl: './carrito.component.scss'
 })
 export class CarritoComponent {
+
+  cartList$: Observable<Ropa[]> 
+
+  constructor(private cart : CarritoRopaService){
+    this.cartList$ = cart.cartList.asObservable();
+  }
 
 }

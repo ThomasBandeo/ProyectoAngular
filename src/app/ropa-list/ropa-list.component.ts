@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Ropa } from './Ropa';
+import { CarritoRopaService } from '../carrito-ropa.service';
 
 @Component({
   selector: 'app-ropa-list',
@@ -8,6 +9,9 @@ import { Ropa } from './Ropa';
   styleUrl: './ropa-list.component.scss'
 })
 export class RopaListComponent {
+
+  constructor(private cart : CarritoRopaService){
+  }
   
   ropas : Ropa[] = [
     { 
@@ -39,33 +43,17 @@ export class RopaListComponent {
     }
   ];
   
-
-  downQuantity(ropa: Ropa):void{
-    if (ropa.quantity > 0)
-      ropa.quantity--;
+  maxReached(m:string){
+    alert(m);
   }
 
-  upQuantity(ropa: Ropa):void{
-    if (ropa.quantity < ropa.stock)
-      ropa.quantity++;
-  }
-  
-  changeQuantity(event: Event, ropa: Ropa): void {
-    const input = event.target as HTMLInputElement;
-    let value = parseInt(input.value, 10);   // Convierte el string en número base 10
+  addToCart(ropa:Ropa):void{
 
-    if (isNaN(value)) {       // si no es un numero, se fuerza a 0.
-      ropa.quantity = 0;
-    } else if (value < 0) {   // si el valor es negativo, se fuerza a 0
-      ropa.quantity = 0;
-      input.value = '0'; 
-    } else if (value > ropa.stock) {  //si el usuario pone un numero mayor al stock, el valor se ajusta automáticamente al stock.
-      ropa.quantity = ropa.stock;
-      input.value = ropa.stock.toString();  
-    } else {
-      ropa.quantity = value;
-      input.value = value.toString(); // esto elimina automaticamente los ceros innecesarios
-    }
+    this.cart.addToCart(ropa)
+
+    ropa.stock -= ropa.quantity;
+    ropa.quantity = 0;
   }
+
 
 }

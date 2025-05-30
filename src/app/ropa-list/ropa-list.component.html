@@ -8,7 +8,8 @@
             <th>Tipo</th>
             <th>Precio</th>
             <th>Stock</th>
-            <th>Compras</th>
+            <th>Cantidad</th>
+            <th>Compra</th>
         </tr>
     </thead>
     <tbody>
@@ -24,14 +25,15 @@
                      <td><span class="badge bg-success">DISPONIBLE</span></td> <!-- hago lo mismo de arriba y busco un span verde para disponible -->
                 }
                 <td>
-                    <button class="btn btn-outline-secondary btn-sm rounded-circle me-1" (click)="downQuantity(ropa)">−</button>
-                    <input 
-                    type="text" 
-                    class="form-control d-inline text-center mx-1 quantity-input"
-                    [(ngModel)]="ropa.quantity"
-                    (input)="changeQuantity($event, ropa)"> 
-                    <!-- Use (input) en lugar de (keyup) porque keyup no capturaba algunos cambios como pegar texto o autocompletado -->
-                    <button class="btn btn-outline-secondary btn-sm rounded-circle ms-1" (click)="upQuantity(ropa)">+</button>
+                    @if (ropa.stock > 0) {
+                        <app-input-integer [(quantity)] = "ropa.quantity" 
+                            [max]="ropa.stock"
+                            (maxReached) = "maxReached($event)"> 
+                        </app-input-integer>
+                    }
+                </td>
+                <td>
+                    <button class="btn btn-primary btn-sm" (click)="addToCart(ropa)">  Comprar  </button>
                 </td>
             </tr>
         } @empty {
