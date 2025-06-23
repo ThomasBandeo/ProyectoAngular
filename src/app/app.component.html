@@ -14,6 +14,14 @@
           <a class="nav-link text-white" [routerLink]="['/about']">Contacto</a>
         </li>
       </ul>
+
+      <!-- Este ul separado con ms-auto empuja el login a la derecha -->
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item d-flex align-items-center">
+          <img src="assets/img/user-icon.png" alt="User" width="24" height="24" class="me-1 rounded-circle" />
+          <a class="nav-link text-white" [routerLink]="['/login']">Login</a>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>

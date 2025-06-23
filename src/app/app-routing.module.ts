@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import path from 'node:path';
 import { IndumentariaRopasComponent } from './indumentaria-ropas/indumentaria-ropas.component';
 import { IndumentariaAboutComponent } from './indumentaria-about/indumentaria-about.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 const routes: Routes = [
   {                           //raiz de nuestro proyecto
@@ -17,6 +18,10 @@ const routes: Routes = [
   { 
     path : 'about' , 
     component: IndumentariaAboutComponent
+  },
+  { 
+    path : 'login' , 
+    component: SignUpComponent
   },
 
 

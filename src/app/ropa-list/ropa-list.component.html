@@ -15,16 +15,16 @@
     <tbody>
         @for (ropa of ropas; track ropa.name){
             <tr [ngClass]="{ 'clearance': ropa.clearance }">
-                <td><img width="200" class="img-thumbnail img-indumentaria" [src]="ropa.image" [alt]="ropa.name"> </td>
+                <td><img width="500" class="img-thumbnail img-indumentaria" [src]="ropa.image" [alt]="ropa.name"> </td>
                 <td>{{ropa.name}}</td>
                 <td>{{ropa.type}}</td>
                 <td>{{ropa.price | currency }}</td>
                 @if (ropa.stock == 0) {
                     <td><span class="badge bg-warning text-dark">SIN STOCK</span></td>
                 } @else {
-                     <td><span class="badge bg-success">DISPONIBLE</span></td> <!-- hago lo mismo de arriba y busco un span verde para disponible -->
+                    <td><span class="badge bg-success">DISPONIBLE</span></td> <!-- hago lo mismo de arriba y busco un span verde para disponible -->
                 }
-                <td>
+                <td class="td-cantidad">
                     @if (ropa.stock > 0) {
                         <app-input-integer [(quantity)] = "ropa.quantity" 
                             [max]="ropa.stock"

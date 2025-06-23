@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { RopaListComponent } from './ropa-list/ropa-list.component';
 
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IndumentariaAboutComponent } from './indumentaria-about/indumentaria-about.component';
 import { IndumentariaRopasComponent } from './indumentaria-ropas/indumentaria-ropas.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { InputIntegerComponent } from './input-integer/input-integer.component';
 
 import { HttpClientModule } from '@angular/common/http';
+
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 @NgModule({
@@ -23,12 +25,14 @@ import { HttpClientModule } from '@angular/common/http';
     IndumentariaRopasComponent,
     CarritoComponent,
     InputIntegerComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [
     provideClientHydration(withEventReplay())
