@@ -1,11 +1,35 @@
-<h1 class="text-center my-4"> Carrito compra </h1>
-
+<h1 class="text-center my-4">
+  Carrito de compra
+</h1>
 
 <ul class="list-group mt-3">
   <li 
     *ngFor="let ropa of cartList$ | async" 
     class="list-group-item d-flex justify-content-between align-items-center">
-    <span>{{ ropa.name }}</span>
-    <span class="badge bg-secondary rounded-pill">{{ ropa.quantity }}</span>
+    
+    <div class="d-flex flex-column">
+      <strong>{{ ropa.name }}</strong>
+      <small class="text-muted">Subtotal: {{ ropa.price * ropa.quantity | currency:'USD' }}</small>
+    </div>
+    
+    <span class="badge bg-secondary rounded-pill">
+      {{ ropa.quantity }}
+    </span>
   </li>
 </ul>
+
+<!-- Total + Botón finalizar compra -->
+<div class="mt-4 text-center">
+  <p class="fw-bold">
+    Total: {{ getTotal() | currency:'USD' }}
+  </p>
+
+  <button class="btn btn-success px-4" (click)="finalizarCompra()">
+    Finalizar compra
+  </button>
+</div>
+
+<!-- Botón finalizar compra + msj -->
+<div *ngIf="mensajeCompra" class="alert alert-success mt-3">
+  {{ mensajeCompra }}
+</div>

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators, } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-sign-up',
@@ -10,6 +12,9 @@ import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators, 
 
 
 export class SignUpComponent {
+
+  constructor(private router: Router) {}
+
 
   formSignUp = new FormGroup({
     username: new FormControl('', [Validators.required]),
@@ -38,8 +43,12 @@ export class SignUpComponent {
   }
 
 
-  onSubmit(){
-    console.log(this.formSignUp.value);
+  onSubmit() {
+    if (this.formSignUp.valid) {
+      console.log(this.formSignUp.value); // Opcional: podés guardar o enviar los datos
+      this.router.navigate(['/']); // Redirecciona al home
+    }
   }
+
 
 }

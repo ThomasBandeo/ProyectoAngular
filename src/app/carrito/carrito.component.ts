@@ -17,4 +17,20 @@ export class CarritoComponent {
     this.cartList$ = cart.cartList.asObservable();
   }
 
+  getTotal(): number {
+    let total = 0;
+    this.cartList$.subscribe(cart => {
+      cart.forEach(item => {
+        total += item.price * item.quantity;
+      });
+    }).unsubscribe(); 
+    return total;
+  }
+
+
+  mensajeCompra = '';
+
+  finalizarCompra() {
+    this.mensajeCompra = '✅ ¡Gracias por tu compra!';
+  }
 }
